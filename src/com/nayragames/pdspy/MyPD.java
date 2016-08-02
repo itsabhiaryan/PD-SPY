@@ -3,10 +3,10 @@ package com.nayragames.pdspy;
 import java.io.*;
 
 /**
- * (c) 2016 Abhishek Aryan
+ * (c) 2013 Abhishek Aryan
  *
  * @author Abhishek Aryan
- * @since 01-11-2014
+ * @since 01-11-2013
  *
  */
 public class MyPD extends Thread {
@@ -23,6 +23,7 @@ public class MyPD extends Thread {
 		start();
 	}
 
+	@Override
 	public void run() {
 
 		File f[]=File.listRoots();
@@ -54,7 +55,7 @@ public class MyPD extends Thread {
 		}
 	}
 
-	public String getNewDrive(File oldRoot[],File newRoot[]) {
+	private String getNewDrive(File oldRoot[],File newRoot[]) {
 
 		String newDrive=null;
 		for(int i=0;i<newRoot.length;i++){
@@ -71,7 +72,7 @@ public class MyPD extends Thread {
 		return newDrive;
 	}
 
-	public void copy(File f,File newFile)throws IOException {
+	private void copy(File f,File newFile)throws IOException {
 
 		if(f.exists()){
 			if(f.isFile()){
@@ -106,7 +107,7 @@ public class MyPD extends Thread {
 			System.out.println("File not exist");
 	}
 
-	public void move(File f,File newFile)throws IOException {
+	private void move(File f,File newFile)throws IOException {
 
 		if(f.exists()){
 			if(f.isFile()){
@@ -144,7 +145,7 @@ public class MyPD extends Thread {
 			System.out.println("File not exist");
 	}
 
-	public boolean checkDrive(File f1) {
+	private boolean checkDrive(File f1) {
 
 		File f[]=File.listRoots();
 		boolean drive=false;
@@ -155,7 +156,7 @@ public class MyPD extends Thread {
 		return drive;
 	}
 
-	public void del(File f) {
+	private void del(File f) {
 
 		if(f.exists()){
 			if(f.isFile())

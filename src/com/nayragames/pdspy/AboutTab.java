@@ -1,16 +1,14 @@
 package com.nayragames.pdspy;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
 import java.net.URL;
 
 /**
- * (c) 2016 Abhishek Aryan
+ * (c) 2013 Abhishek Aryan
  *
  * @author Abhishek Aryan
- * @since 01-11-2014
+ * @since 01-11-2013
  *
  */
 public class AboutTab extends JPanel {
@@ -29,7 +27,7 @@ public class AboutTab extends JPanel {
         add(tabbedPane, BorderLayout.CENTER);
     }
 
-    public JPanel createPane(String s) {
+    private JPanel createPane(String s) {
         if (s.equals("Product")) {
 
             JPanel p = new JPanel();
@@ -66,10 +64,10 @@ public class AboutTab extends JPanel {
             JLabel authorImage = new JLabel(new ImageIcon(im, "image"));
             p.add(authorImage, BorderLayout.WEST);
             JLabel aboutAuthor = new JLabel("<html><font size=3><center><b>ABHISHEK ARYAN</b></center>"
-                    + "<ul><li>Specification : XXXX</li>"
-                    + "<li>Qualification : XXXX</li>"
+                    + "<ul><li>Specification : Nothing</li>"
+                    + "<li>Qualification : Not yet</li>"
                     + "<li>Email : aryan9234@gmail.com</li>"
-                    + "<li>Contact No.: +91XXXXXXXXXX</li>"
+                    + "<li>Contact No.: +918X2X44XXXX</li>"
                     + "<li>Website : aryan9234.blogspot.com </li></ul></font>"
                     + "</html>");
             p.add(aboutAuthor, BorderLayout.CENTER);

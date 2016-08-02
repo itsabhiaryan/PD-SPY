@@ -8,19 +8,20 @@ import java.util.Date;
 import java.util.HashSet;
 
 /**
- * (c) 2016 Abhishek Aryan
+ * (c) 2013 Abhishek Aryan
  *
  * @author Abhishek Aryan
- * @since 01-11-2014
+ * @since 01-11-2013
  *
  */
 public class NewDri extends Thread {
 
-    String driveName ;
-    HashSet<String> al;
-    PrintStream p;
-    MyPD mypd;
-    NewDri(String label,MyPD mypd) {
+    private String driveName ;
+    private HashSet<String> al;
+    private PrintStream p;
+    private MyPD mypd;
+
+    public NewDri(String label,MyPD mypd) {
 
         this.driveName=label;
         this.mypd=mypd;
@@ -28,6 +29,7 @@ public class NewDri extends Thread {
         start();
     }
 
+    @Override
     public void run() {
 
         long size=new File(driveName).getFreeSpace();
@@ -57,7 +59,7 @@ public class NewDri extends Thread {
         }
     }
 
-    public void list(File drive) {
+    private void list(File drive) {
 
         String file[]=drive.list();
         for(int i=0;i<file.length;i++){
@@ -68,7 +70,7 @@ public class NewDri extends Thread {
         }
     }
 
-    public void log() {
+    private void log() {
 
         try{
                 if(!new File("C://IBI").exists())
@@ -77,7 +79,7 @@ public class NewDri extends Thread {
             }catch(Exception e){}
     }
 
-    public void delete() {
+    private void delete() {
 
         al.clear();
         list(new File(driveName));

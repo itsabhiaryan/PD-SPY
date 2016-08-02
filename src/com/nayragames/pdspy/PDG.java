@@ -18,11 +18,12 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
+
 /**
- * (c) 2016 Abhishek Aryan
+ * (c) 2013 Abhishek Aryan
  *
  * @author Abhishek Aryan
- * @since 01-11-2014
+ * @since 01-11-2013
  *
  */
 public class PDG extends JFrame implements ActionListener,TreeSelectionListener {
@@ -118,7 +119,7 @@ public class PDG extends JFrame implements ActionListener,TreeSelectionListener 
         new MyTray(pd);
     }
 
-    public void getLog(){
+    void getLog(){
 
         al.clear();
         al2.clear();
@@ -148,6 +149,7 @@ public class PDG extends JFrame implements ActionListener,TreeSelectionListener 
         pd.add(splitPane,BorderLayout.CENTER);
     }
 
+    @Override
     public void actionPerformed(ActionEvent e) {
 
         for(int i=0;i<5;i++){
@@ -166,13 +168,14 @@ public class PDG extends JFrame implements ActionListener,TreeSelectionListener 
         }
     }
 
-    public void operation(String label) {
+    void operation(String label) {
 
         char ch[]=label.toCharArray();
         pdt.set(ch[0]+"");
         set(ch[0]+"");
     }
 
+    @Override
     public void valueChanged(TreeSelectionEvent e) {
 
         Object o[]=e.getPath().getPath();
@@ -185,7 +188,7 @@ public class PDG extends JFrame implements ActionListener,TreeSelectionListener 
         }
     }
 
-    public void getData(int start,int end) {
+    private void getData(int start,int end) {
 
         ta.setText(null);
         for(int i=model.getRowCount()-1;i>=0;i--)
@@ -205,7 +208,7 @@ public class PDG extends JFrame implements ActionListener,TreeSelectionListener 
         }
     }
 
-    public void set(String action) {
+    private void set(String action) {
 
         this.action=action;
         header.setText("CURRENT OPERATION -'"+action+"'");

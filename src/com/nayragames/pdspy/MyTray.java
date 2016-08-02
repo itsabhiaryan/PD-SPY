@@ -1,28 +1,24 @@
 package com.nayragames.pdspy;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 
 /**
- * (c) 2016 Abhishek Aryan
+ * (c) 2013 Abhishek Aryan
  *
  * @author Abhishek Aryan
- * @since 01-11-2014
+ * @since 01-11-2013
  *
  */
 
 public class MyTray extends MouseAdapter implements ActionListener {
 
-    PDG pdg;
-    MenuItem menuItem[]=new MenuItem[7];
+    private PDG pdg;
+    private MenuItem menuItem[]=new MenuItem[7];
     private TrayIcon trayIcon=null;
 
     public MyTray(PDG pdg) {
@@ -69,6 +65,7 @@ public class MyTray extends MouseAdapter implements ActionListener {
             System.out.println("System tray is not Supported");
     }
 
+    @Override
     public void actionPerformed(ActionEvent e) {
 
         if(e.getSource()==menuItem[0])
@@ -84,6 +81,7 @@ public class MyTray extends MouseAdapter implements ActionListener {
         }
     }
 
+    @Override
     public void mouseClicked(MouseEvent e) {
 
         trayIcon.displayMessage("PDSPY.","Current Operation "+pdg.action, TrayIcon.MessageType.INFO);

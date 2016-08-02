@@ -6,14 +6,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * (c) 2016 Abhishek Aryan
+ * (c) 2013 Abhishek Aryan
  *
  * @author Abhishek Aryan
- * @since 01-11-2014
+ * @since 01-11-2013
  *
  */
 
 public class AboutPD extends JDialog implements ActionListener {
+
     private PDG pd;
     private AboutPD about;
 
@@ -36,6 +37,7 @@ public class AboutPD extends JDialog implements ActionListener {
         setAlwaysOnTop(true);
     }
 
+    @Override
     public void actionPerformed(ActionEvent e)
 {
 about.dispose();

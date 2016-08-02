@@ -1,19 +1,21 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import javax.swing.border.*;
+package com.nayragames.pdspy;
 
+import java.io.*;
+
+/**
+ * (c) 2016 Abhishek Aryan
+ *
+ * @author Abhishek Aryan
+ * @since 01-11-2014
+ *
+ */
 public class MyPD extends Thread {
-	MyPD pd;
-	String action;
+
+	private MyPD pd;
+	private String action;
 	PDG pdg;
-	MyPD(String action,PDG pdg) {
+
+	public MyPD(String action,PDG pdg) {
 
 		this.pd=this;
 		this.action=action;

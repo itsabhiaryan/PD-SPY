@@ -1,12 +1,31 @@
+package com.nayragames.pdspy;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-class MyTray extends MouseAdapter implements ActionListener {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+
+/**
+ * (c) 2016 Abhishek Aryan
+ *
+ * @author Abhishek Aryan
+ * @since 01-11-2014
+ *
+ */
+
+public class MyTray extends MouseAdapter implements ActionListener {
 
     PDG pdg;
     MenuItem menuItem[]=new MenuItem[7];
-    TrayIcon trayIcon=null;
+    private TrayIcon trayIcon=null;
 
-    MyTray(PDG pdg) {
+    public MyTray(PDG pdg) {
 
         this.pdg=pdg;
         if(SystemTray.isSupported()){
@@ -17,12 +36,32 @@ class MyTray extends MouseAdapter implements ActionListener {
                 popup.add(menuItem[i]=new MenuItem(menuItemCaption[i]));
                 menuItem[i].addActionListener(this);
             }
-            trayIcon=new TrayIcon(Toolkit.getDefaultToolkit().getImage(MyTray.class.getResource("images/ibi16.png")),"PDSPY.",popup);
+
+
+         /*   try{
+
+             File pathToFile=new File("ibi16.png");
+             image= ImageIO.read(pathToFile);
+
+            }catch(IOException e){
+                System.out.println("IOEXCEPTION");
+                e.printStackTrace();
+            }*/
+
+            ClassLoader classLoader=getClass().getClassLoader();
+            URL url=classLoader.getResource("assets/ibi16.png");
+            Image image=Toolkit.getDefaultToolkit().getImage(url);
+
+            //image=   new ImageIcon("/assets/ibi16.png").getImage();
+
+            //Toolkit.getDefaultToolkit().getImage(MyTray.class.getResource("ibi16.png"))
+            trayIcon=new TrayIcon(image,"PDSPY.",popup);
             trayIcon.addMouseListener(this);
             try{
                 tray.add(trayIcon);
             }
             catch(AWTException e){
+                System.out.println("AWT EXCE");
                 System.out.println(e);
             }
         }

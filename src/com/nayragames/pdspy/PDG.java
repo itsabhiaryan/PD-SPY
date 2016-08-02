@@ -1,37 +1,51 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.border.*;
-import javax.swing.*;
-import java.awt.*;
-import java.io.*;
-import javax.swing.tree.*;
-import javax.swing.event.*;
-import java.awt.event.*;
-import java.util.*;
-import javax.swing.table.*;
+package com.nayragames.pdspy;
 
+import javax.swing.*;
+import javax.swing.border.BevelBorder;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+/**
+ * (c) 2016 Abhishek Aryan
+ *
+ * @author Abhishek Aryan
+ * @since 01-11-2014
+ *
+ */
 public class PDG extends JFrame implements ActionListener,TreeSelectionListener {
 
-    PDG pd;
-    JLabel header;
+    private PDG pd;
+    private JLabel header;
     String action="W";
-    JMenuItem about,log;
-    ImageIcon image[]=new ImageIcon[7];
-    JMenuItem menuItem[][]=new JMenuItem[1][5];
+    private JMenuItem about,log;
+    private ImageIcon image[]=new ImageIcon[7];
+    private JMenuItem menuItem[][]=new JMenuItem[1][5];
 
-    JTree jt;
-    DefaultMutableTreeNode root=new DefaultMutableTreeNode("Record");
-    DefaultTreeModel tm=new DefaultTreeModel(root);
-    JSplitPane splitPane;
-    JTextArea ta=new JTextArea(12,3);
-    ArrayList<String> al=new ArrayList<String>();
-    ArrayList<String> al2=new ArrayList<String>();
-    JTable table=new JTable();
-    DefaultTableModel model=(DefaultTableModel)table.getModel();
-    MyPD pdt;
+    private JTree jt;
+    private DefaultMutableTreeNode root=new DefaultMutableTreeNode("Record");
+    private DefaultTreeModel tm=new DefaultTreeModel(root);
+    private JSplitPane splitPane;
+    private JTextArea ta=new JTextArea(12,3);
+    private ArrayList<String> al=new ArrayList<String>();
+    private ArrayList<String> al2=new ArrayList<String>();
+    private JTable table=new JTable();
+    private DefaultTableModel model=(DefaultTableModel)table.getModel();
+    private MyPD pdt;
 
-    PDG() {
+    public PDG() {
 
         super("PD-SPY.");
         this.pd=this;
@@ -51,14 +65,24 @@ public class PDG extends JFrame implements ActionListener,TreeSelectionListener 
         splitPane.setDividerLocation(130);
         jt.addTreeSelectionListener(this);
 
-
         try{
             String imageName[]={"copy16","cut16","delete16","sea","cancel16","add","ibi16"};
-            for(int i=0;i<image.length;i++)
-                image[i]=new ImageIcon(PDG.class.getResource("images/"+imageName[i]+".png"));
+
+            for(int i=0;i<image.length;i++) {
+
+                //  image[i]=new ImageIcon(PDG.class.getResource("images/"+imageName[i]+".png"));
+               // File file=new File("assets/" + imageName[i] + ".png");
+               // System.out.println(file.exists()+"File");
+
+                ClassLoader classLoader=getClass().getClassLoader();
+                URL url=classLoader.getResource("assets/"+imageName[i]+".png");
+                Image im=Toolkit.getDefaultToolkit().getImage(url);
+                image[i] = new ImageIcon(im,imageName[i]);
+               // image[i] = new ImageIcon("assets/"+imageName[i] + ".png");
+            }
             }
             catch(Exception e) {
-                System.out.println(e);
+                System.out.println("HERE"+e);
             }
         JMenuBar menuBar=new JMenuBar();
         JMenu menu[]=new JMenu[3];

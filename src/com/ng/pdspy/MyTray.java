@@ -1,4 +1,4 @@
-package com.nayragames.pdspy;
+package com.ng.pdspy;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,4 @@
-package com.nayragames.pdspy;
+package com.ng.pdspy;
 
 import javax.swing.*;
 import java.awt.*;
@@ -36,7 +36,7 @@ public class AboutTab extends JPanel {
             JLabel aboutLabel = new JLabel("<html><p>  </p><center><font size=3><p><b>PD-SPY</b> is a SPY Software Coded in JAVA"
                     + "Technology, developed by <u>ABHISHEK ARY$N</u>.</p>"
                     + "<p> <p>"
-                    + "<p>For more information, please write at <a href=http://www.aryan9234.blogspot.com title=aryan9234>www.aryan9234.blogspot.com</a></p></font></center></html>", JLabel.CENTER);
+                    + "<p>For more information, please write at <a href=http://www.itsabhiaryan.wordpress.com title=itsabhiaryan>www.itsabhiaryan.wordpress.com</a></p></font></center></html>", JLabel.CENTER);
 
             p.add(aboutLabel, BorderLayout.CENTER);
             return p;
@@ -66,9 +66,9 @@ public class AboutTab extends JPanel {
             JLabel aboutAuthor = new JLabel("<html><font size=3><center><b>ABHISHEK ARYAN</b></center>"
                     + "<ul><li>Specification : Nothing</li>"
                     + "<li>Qualification : Not yet</li>"
-                    + "<li>Email : aryan9234@gmail.com</li>"
+                    + "<li>Email : itsabhiaryan@gmail.com</li>"
                     + "<li>Contact No.: +918X2X44XXXX</li>"
-                    + "<li>Website : aryan9234.blogspot.com </li></ul></font>"
+                    + "<li>Website : itsabhiaryan.wordpress.com </li></ul></font>"
                     + "</html>");
             p.add(aboutAuthor, BorderLayout.CENTER);
             return p;

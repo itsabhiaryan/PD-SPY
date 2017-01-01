@@ -1,4 +1,4 @@
-package com.nayragames.pdinstaller;
+package com.ng.pdinstaller;
 
 import javax.swing.*;
 import java.awt.*;
